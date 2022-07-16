@@ -470,6 +470,7 @@ public class TdlibAccount implements Comparable<TdlibAccount>, TdlibProvider {
     private String username;
     private String phoneNumber;
     private String profilePhotoSmallPath, profilePhotoBigPath;
+    private boolean isPremium;
 
     DisplayInformation (String prefix) {
       this.prefix = prefix;
@@ -488,6 +489,7 @@ public class TdlibAccount implements Comparable<TdlibAccount>, TdlibProvider {
       } else {
         this.profilePhotoSmallPath = this.profilePhotoBigPath = null;
       }
+      this.isPremium = user.isPremium;
       saveAll();
     }
 
@@ -751,6 +753,14 @@ public class TdlibAccount implements Comparable<TdlibAccount>, TdlibProvider {
       return TD.getUserName(myUser);
     DisplayInformation info = getDisplayInformation();
     return info != null ? TD.getUserName(info.getFirstName(), info.getLastName()) : "User #" + knownUserId;
+  }
+
+  public boolean hasPremium () {
+    TdApi.User myUser = getUser();
+    if (myUser != null)
+      return myUser.isPremium;
+    DisplayInformation info = getDisplayInformation();
+    return info != null && info.isPremium;
   }
 
   public boolean hasUserInfo () {
