@@ -1952,9 +1952,6 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
     // Reaction bubbles
     if (useReactionBubbles) {
       int top = (int) (this.height - messageReactions.getAnimatedHeight() - getExtraPadding());
-      if (needCommentButton()) {
-        top -= getCommentButtonHeight();
-      }
       if (!useBubbles) {
         drawReactionsWithBubbles(c, view, xContentLeft, top - Screen.dp(9));
       } else {
