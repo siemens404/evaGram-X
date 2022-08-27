@@ -23,11 +23,11 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 @ExperimentalContracts
-fun writeToFile(path: String, mkdirs: Boolean = true, block: (Writer) -> Unit) {
+fun BaseTask.writeToFile(path: String, mkdirs: Boolean = true, block: (Writer) -> Unit) {
   contract {
     callsInPlace(block, InvocationKind.EXACTLY_ONCE)
   }
-  val file = File(path)
+  val file = project.rootProject.file(path)
   if (!file.parentFile.exists()) {
     if (mkdirs) {
       if (!file.parentFile.mkdirs())
