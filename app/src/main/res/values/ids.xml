@@ -1227,6 +1227,7 @@
   <item type="id" name="controller_appearanceSettings" />
   <item type="id" name="controller_chatsSettings" />
   <item type="id" name="controller_experimentalSettings" />
+  <item type="id" name="controller_drawerSettings" />
   
   <!-- evaSettings buttons -->
   <item type="id" name="btn_evaSettings" />
@@ -1250,4 +1251,13 @@
   <item type="id" name="btn_disableCameraButton" />
   <item type="id" name="btn_disableRecordButton" />
   <item type="id" name="btn_rememberSendOptions" />
+
+  <!-- Drawer settings buttons -->
+  <item type="id" name="btn_drawerSettings" />
+  <item type="id" name="btn_drawerContacts" />
+  <item type="id" name="btn_drawerCalls" />
+  <item type="id" name="btn_drawerFavourite" />
+  <item type="id" name="btn_drawerInviteFriends" />
+  <item type="id" name="btn_drawerHelp" />
+  <item type="id" name="btn_drawerNightMode" />
 </resources>

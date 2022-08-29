@@ -44,6 +44,14 @@ public class EvaSettings {
   public static final String KEY_SEND_AS_COPY = "send_as_copy";
   public static final String KEY_SEND_REMOVE_CAPTIONS = "send_remove_captions";
   public static final String KEY_SEND_WITHOUT_SOUND = "send_without_sound";
+  //
+  // Drawer
+  public static final String KEY_DRAWER_CONTACTS = "drawer_contacts";
+  public static final String KEY_DRAWER_CALLS = "drawer_calls";
+  public static final String KEY_DRAWER_FAVOURITE = "drawer_favourite";
+  public static final String KEY_DRAWER_INVITE_FRIENDS = "drawer_invite_friends";
+  public static final String KEY_DRAWER_HELP = "drawer_help";
+  public static final String KEY_DRAWER_NIGHTMODE = "drawer_nightmode";
 
   // evaSettings vars
   private static volatile EvaSettings instance;
@@ -223,7 +231,7 @@ public class EvaSettings {
   }
 
   public void toggleHideNumber () {
-    notifyNewSettingsListener(KEY_HIDE_NUMBER, !isNumberHidden(), isNumberHidden());
+    notifyNewSettingsListeners(KEY_HIDE_NUMBER, !isNumberHidden(), isNumberHidden());
     putBoolean(KEY_HIDE_NUMBER, !isNumberHidden());
   }
 
@@ -274,5 +282,54 @@ public class EvaSettings {
 
   public void putSendWithoutSound (boolean enable) {
     putBoolean(KEY_SEND_WITHOUT_SOUND, enable);
+  }
+
+  // Drawer
+  public boolean isDrawerContactsShow () {
+    return getBoolean(KEY_DRAWER_CONTACTS, true);
+  }
+
+  public void toggleDrawerContacts () {
+    putBoolean(KEY_DRAWER_CONTACTS, !isDrawerContactsShow());
+  }
+
+  public boolean isDrawerCallsShow () {
+    return getBoolean(KEY_DRAWER_CALLS, true);
+  }
+
+  public void toggleDrawerCalls () {
+    putBoolean(KEY_DRAWER_CALLS, !isDrawerCallsShow());
+  }
+
+  public boolean isDrawerFavouriteShow () {
+    return getBoolean(KEY_DRAWER_FAVOURITE, true);
+  }
+
+  public void toggleDrawerFavourite () {
+    putBoolean(KEY_DRAWER_FAVOURITE, !isDrawerFavouriteShow());
+  }
+
+  public boolean isDrawerFriendsShow () {
+    return getBoolean(KEY_DRAWER_INVITE_FRIENDS, false);
+  }
+
+  public void toggleDrawerInviteFriends () {
+    putBoolean(KEY_DRAWER_INVITE_FRIENDS, isDrawerFriendsShow());
+  }
+
+  public boolean isDrawerHelpShow () {
+    return getBoolean(KEY_DRAWER_HELP, false);
+  }
+
+  public void toggleDrawerHelp () {
+    putBoolean(KEY_DRAWER_HELP, isDrawerHelpShow());
+  }
+
+  public boolean isDrawerNightmodeShow () {
+    return getBoolean(KEY_DRAWER_NIGHTMODE, true);
+  }
+
+  public void toggleDrawerNightMode () {
+    putBoolean(KEY_DRAWER_NIGHTMODE, !isDrawerNightmodeShow());
   }
 }

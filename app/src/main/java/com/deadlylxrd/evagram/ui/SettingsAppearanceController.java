@@ -5,6 +5,7 @@ import android.util.SparseIntArray;
 import android.view.View;
 
 import com.deadlylxrd.evagram.EvaSettings;
+import com.deadlylxrd.evagram.ui.CustomDrawerController;
 
 import org.thunderdog.challegram.R;
 import org.thunderdog.challegram.component.base.SettingView;
@@ -41,6 +42,9 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
         EvaSettings.instance().toggleEnableComments();
         adapter.updateValuedSettingById(R.id.btn_enableComments);
         break;
+      case R.id.btn_drawerSettings:
+        navigateTo(new CustomDrawerController(context, tdlib));
+        break;
     }
   }
 
@@ -75,6 +79,8 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_enableComments, 0, R.string.EnableComments));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.EnableCommentsDesc));
+    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_drawerSettings, 0, R.string.DrawerSettings));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     adapter.setItems(items, true);
     recyclerView.setAdapter(adapter);

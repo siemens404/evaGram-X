@@ -19,6 +19,8 @@
     <string name="HideNumberDesc">Скрывает номер телефона в боковом меню и настройках</string>
     <string name="EnableComments">Включить комментарии</string>
     <string name="EnableCommentsDesc">Работает только если включены сообщения-блоки в каналах</string>
+    <string name="DrawerSettings">Настройки бокового меню</string>
+    <string name="DrawerSettingsDesc">В этом разделе Вы можете выбрать, какие пункты будут отображаться в боковом меню</string>
 
     <!-- General settings -->
     <string name="ShowChatId">Показывать ID в профиле</string>
