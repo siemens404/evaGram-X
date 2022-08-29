@@ -41,6 +41,10 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
         EvaSettings.instance().toggleDisableRecordButton();
         adapter.updateValuedSettingById(R.id.btn_disableRecordButton);
         break;
+      case R.id.btn_rememberSendOptions:
+        EvaSettings.instance().toggleRememberSendOptions();
+        adapter.updateValuedSettingsById(R.id.btn_rememberSendOptions);
+        break;
     }
   }
 
@@ -62,6 +66,9 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
           case R.id.btn_disableRecordButton:
             view.getToggler().setRadioEnabled(EvaSettings.instance().isDisableRecordButton(), isUpdate);
             break;
+          case R.id.btn_rememberSendOptions:
+	    view.getToggler().setRadioEnabled(EvaSettings.instance().isRememberSendOptions(), isUpdate);
+	    break;
         }
       }
     };
@@ -71,7 +78,10 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableCameraButton, 0, R.string.DisableCameraButton));
     items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableRecordButton, 0, R.string.DisableRecordButton));
+    items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_rememberSendOptions, 0, R.string.RememberSendOptions));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+    items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.RememberSendOptionsDesc));
 
     adapter.setItems(items, true);
     recyclerView.setAdapter(adapter);

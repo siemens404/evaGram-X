@@ -23,4 +23,6 @@
     <!-- Chats settings -->
     <string name="DisableCameraButton">Отключить кнопку камеры</string>
     <string name="DisableRecordButton">Отключить кнопку записи</string>
+    <string name="RememberSendOptions">Запоминать опции отправки</string>
+    <string name="RememberSendOptionsDesc">Сохраняет состояние опций отравки, таких как отправка без звука, отправка без автора, отправка без подписи</string>
 </resources>

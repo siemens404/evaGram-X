@@ -1248,4 +1248,5 @@
   <!-- Chats settings buttons -->
   <item type="id" name="btn_disableCameraButton" />
   <item type="id" name="btn_disableRecordButton" />
+  <item type="id" name="btn_rememberSendOptions" />
 </resources>

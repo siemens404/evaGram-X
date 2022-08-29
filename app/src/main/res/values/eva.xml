@@ -25,4 +25,6 @@
     <!-- Chats settings -->
     <string name="DisableCameraButton">Disable camera button</string>
     <string name="DisableRecordButton">Disable record button</string>
+    <string name="RememberSendOptions">Remember send options</string>
+    <string name="RememberSendOptionsDesc">Saves the state of the send options, such as send without sound, send without author, send without label</string>
 </resources>
