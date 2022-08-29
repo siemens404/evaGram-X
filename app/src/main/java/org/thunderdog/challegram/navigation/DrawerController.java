@@ -259,18 +259,18 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       headerView.getExpanderView().setExpanded(true, false);
     }
 
-    if (!EvaSettings.instance().isDrawerContactsShow()) {
+    if (EvaSettings.instance().isDrawerContactsShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_contacts, R.drawable.baseline_perm_contact_calendar_24, R.string.Contacts));
     }
-    if (!EvaSettings.instance().isDrawerCallsShow()) {
+    if (EvaSettings.instance().isDrawerCallsShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_calls, R.drawable.baseline_call_24, R.string.Calls));
     }
-    if (!EvaSettings.instance().isDrawerFavouriteShow()) {
+    if (EvaSettings.instance().isDrawerFavouriteShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_savedMessages, R.drawable.baseline_bookmark_24, R.string.SavedMessages));
     }
     this.settingsErrorIcon = getSettingsErrorIcon();
     items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_settings, R.drawable.baseline_settings_24, R.string.Settings));
-    if (EvaSettings.instance().isDrawerFriendsShow()) {
+    if (!EvaSettings.instance().isDrawerFriendsShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_invite, R.drawable.baseline_person_add_24, R.string.InviteFriends));
     }
 
@@ -279,10 +279,10 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       proxyItem.setSelected(Settings.instance().getEffectiveProxyId() != Settings.PROXY_ID_NONE);
       items.add(proxyItem);
     }
-    if (EvaSettings.instance().isDrawerHelpShow()) {
+    if (!EvaSettings.instance().isDrawerHelpShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_help, R.drawable.baseline_help_24, R.string.Help));
     }
-    if (!EvaSettings.instance().isDrawerNightmodeShow()) {
+    if (EvaSettings.instance().isDrawerNightmodeShow()) {
       items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM_WITH_RADIO, R.id.btn_night, R.drawable.baseline_brightness_2_24, R.string.NightMode, R.id.btn_night, Theme.isDark()));
     }
