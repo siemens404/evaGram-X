@@ -7241,14 +7241,6 @@ public class Tdlib implements TdlibProvider, Settings.SettingsChangeListener {
     }
   }
 
-  public TdApi.ChatFilterInfo[] chatFilters() {
-    if (chatFilters == null) {
-      return new TdApi.ChatFilterInfo[0];
-    } else {
-      return chatFilters;
-    }
-  }
-
   @AnyThread
   public @Nullable TdApi.ChatTheme chatTheme (String themeName) {
     synchronized (dataLock) {
