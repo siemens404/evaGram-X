@@ -43,7 +43,7 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
         break;
       case R.id.btn_rememberSendOptions:
         EvaSettings.instance().toggleRememberSendOptions();
-        adapter.updateValuedSettingsById(R.id.btn_rememberSendOptions);
+        adapter.updateValuedSettingById(R.id.btn_rememberSendOptions);
         break;
     }
   }

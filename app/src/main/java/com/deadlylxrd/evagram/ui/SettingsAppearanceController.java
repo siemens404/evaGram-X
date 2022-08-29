@@ -36,7 +36,7 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
       case R.id.btn_hideNumber:
         EvaSettings.instance().toggleHideNumber();
         adapter.updateValuedSettingById(R.id.btn_hideNumber);
-        break:
+        break;
       case R.id.btn_enableComments:
         EvaSettings.instance().toggleEnableComments();
         adapter.updateValuedSettingById(R.id.btn_enableComments);
@@ -70,8 +70,8 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
     ArrayList<ListItem> items = new ArrayList<>();
 
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_hideNumber, 0, R.string.HideNumber));
-    items.add(new.ListItem(ListItem.TYPE_SHADOW_BOTTOM));
-    items.add(new.ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.HideNumberDesc));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+    items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.HideNumberDesc));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_enableComments, 0, R.string.EnableComments));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.EnableCommentsDesc));

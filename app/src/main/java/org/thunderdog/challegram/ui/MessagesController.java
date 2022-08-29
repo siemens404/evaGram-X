@@ -140,6 +140,7 @@ import org.thunderdog.challegram.data.TGMessage;
 import org.thunderdog.challegram.data.TGMessageLocation;
 import org.thunderdog.challegram.data.TGMessageMedia;
 import org.thunderdog.challegram.data.TGMessageSticker;
+import org.thunderdog.challegram.data.TGMessageText;
 import org.thunderdog.challegram.data.TGRecord;
 import org.thunderdog.challegram.data.TGSwitchInline;
 import org.thunderdog.challegram.data.ThreadInfo;
