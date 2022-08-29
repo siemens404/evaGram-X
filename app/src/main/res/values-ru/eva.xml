@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- evaGram main strings -->
+    <string name="MessageRepeat">Повтор</string>
+
     <!-- evaGram settings (main) -->
     <string name="EvaSettings">Настройки evaGram</string>
     <string name="GeneralSettings">Общие</string>

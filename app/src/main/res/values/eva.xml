@@ -3,6 +3,7 @@
     <!-- evaGram main strings -->
     <string name="evaAppName" translatable="false">evaGram</string>
     <string name="ChatId" translatable="false">ID</string>
+    <string name="MessageRepeat">Repeat</string>
 
     <!-- evaGram settings (main) -->
     <string name="EvaSettings">evaGram Settings</string>

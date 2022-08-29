@@ -742,6 +742,13 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
         ids.append(R.id.btn_messageReply);
         strings.append(R.string.Reply);
         icons.append(R.drawable.baseline_reply_24);
+
+        if (msg.canBeForwarded() || msg instanceof TGMessageText || msg instanceof TGMessageSticker) {
+          ids.append(R.id.btn_messageRepeat);
+          strings.append(R.string.MessageRepeat);
+          icons.append(R.drawable.baseline_repeat_24);
+        }
+
       }
 
       if (EvaSettings.instance().isCommentsEnabled()) {
