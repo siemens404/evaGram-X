@@ -1217,6 +1217,9 @@
 
   <!-- evaGram IDs -->
 
+  <!-- Main -->
+  <item type="id" name="btn_chatId" />
+
   <!-- Controllers -->
   <item type="id" name="controller_evaSettings" />
   <item type="id" name="contoller_generalSettings" />
@@ -1232,4 +1235,7 @@
   <item type="id" name="btn_tgChannel" />
   <item type="id" name="btn_sourceCode" />
   <item type="id" name="btn_supportProject" />
+
+  <!-- General settings buttons -->
+  <item type="id" name="btn_showChatId" />
 </resources>

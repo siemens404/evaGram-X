@@ -29,7 +29,9 @@ public class EvaSettings {
   private static final String KEY_VERSION = "version";
 
   // eva features
-  // soon...
+  //
+  // General
+  public static final String KEY_SHOW_CHATID = "show_chatid"; // chat id
 
   // evaSettings vars
   private static volatile EvaSettings instance;
@@ -182,5 +184,14 @@ public class EvaSettings {
         listener.onSettingsChanged(key, newSettings, oldSettings);
       }
     }
+  }
+
+  public boolean isChatIdShows () {
+    return getBoolean(KEY_SHOW_CHATID, false);
+  }
+
+  public void toggleShowChatID () {
+    notifyNewSettingsListeners(KEY_SHOW_CHATID, !isChatIdShows(), isChatIdShows());
+    putBoolean(KEY_SHOW_CHATID, !isChatIdShows());
   }
 }

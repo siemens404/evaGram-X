@@ -2,6 +2,7 @@
 <resources>
     <!-- evaGram main strings -->
     <string name="evaAppName" translatable="false">evaGram</string>
+    <string name="ChatId" translatable="false">ID</string>
 
     <!-- evaGram settings (main) -->
     <string name="EvaSettings">evaGram Settings</string>
@@ -12,4 +13,7 @@
     <string name="TgChannel">Telegram channel</string>
     <string name="EvaSourceCode">evaGram Source Code</string>
     <string name="SupportProject">Donate</string>
+
+    <!-- General settings -->
+    <string name="ShowChatId">Show chat ID</string>
 </resources>

@@ -33,6 +33,10 @@ public class SettingsGeneralController extends RecyclerViewController<Void> impl
   @Override public void onClick (View v) {
     int id = v.getId();
     switch (id) {
+        case R.id.btn_showChatId:
+        EvaSettings.instance().toggleShowChatID();
+        adapter.updateValuedSettingById(R.id.btn_showChatId);
+        break;
     }
   }
 
@@ -49,9 +53,19 @@ public class SettingsGeneralController extends RecyclerViewController<Void> impl
       @Override protected void setValuedSetting (ListItem item, SettingView view, boolean isUpdate) {
         view.setDrawModifier(item.getDrawModifier());
         switch (item.getId()) {
-
+            case R.id.btn_showChatId:
+            view.getToggler().setRadioEnabled(EvaSettings.instance().isChatIdShows(), isUpdate);
+            break;
         }
       }
     };
+
+    ArrayList<ListItem> items = new ArrayList<>();
+
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_showChatId, 0, R.string.ShowChatId));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+
+    adapter.setItems(items, true);
+    recyclerView.setAdapter(adapter);
   }
 }

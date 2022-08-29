@@ -49,6 +49,8 @@ import androidx.annotation.WorkerThread;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.deadlylxrd.evagram.EvaSettings;
+
 import org.drinkless.td.libcore.telegram.Client;
 import org.drinkless.td.libcore.telegram.TdApi;
 import org.thunderdog.challegram.BaseActivity;
@@ -1711,6 +1713,18 @@ public class ProfileController extends ViewController<ProfileController.Args> im
             view.getToggler().setRadioEnabled(Settings.instance().getNewSetting(item.getLongId()), isUpdate);
             break;
           }
+          case R.id.btn_chatId: {
+            switch (mode) {
+              case MODE_USER:
+              case MODE_SECRET:
+              case MODE_CHANNEL:
+              case MODE_SUPERGROUP: {
+                view.setData("" + chat.id);
+                break;
+              }
+            }
+            break;
+          }
           case R.id.btn_username: {
             switch (mode) {
               case MODE_USER:
@@ -2305,6 +2319,18 @@ public class ProfileController extends ViewController<ProfileController.Args> im
     return new ListItem(ListItem.TYPE_VALUED_SETTING, R.id.btn_notifications, R.drawable.baseline_notifications_24, R.string.Notifications);
   }
 
+  private ListItem newChatIdItem () {
+    switch (mode) {
+      case MODE_USER:
+      case MODE_SECRET:
+      case MODE_CHANNEL:
+      case MODE_SUPERGROUP: {
+        return new ListItem(ListItem.TYPE_INFO_SETTING, R.id.btn_chatId, R.drawable.baseline_info_24, R.string.ChatId, false);
+      }
+    }
+    return null;
+  }
+
   private ListItem newUsernameItem () {
     switch (mode) {
       case MODE_USER:
@@ -2351,6 +2377,15 @@ public class ProfileController extends ViewController<ProfileController.Args> im
     items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET));
 
     int addedCount = 0;
+
+    final ListItem chatIdItem = newChatIdItem();
+    if (EvaSettings.instance().isChatIdShows()) {
+      if (chatIdItem != null) {
+        items.add(chatIdItem);
+        addedCount++;
+      }
+    }
+
     if (!user.username.isEmpty()) {
       final ListItem usernameItem = newUsernameItem();
       if (usernameItem != null) {
@@ -2853,6 +2888,14 @@ public class ProfileController extends ViewController<ProfileController.Args> im
 
     int addedCount = 0;
 
+    final ListItem chatIdItem = newChatIdItem();
+    if (EvaSettings.instance().isChatIdShows()) {
+      if (chatIdItem != null) {
+        items.add(chatIdItem);
+        addedCount++;
+      }
+    }
+
     if (isPublic) {
       ListItem usernameItem = newUsernameItem();
       if (usernameItem != null) {
@@ -2929,6 +2972,14 @@ public class ProfileController extends ViewController<ProfileController.Args> im
     items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET));
 
     int addedCount = 0;
+
+    final ListItem chatIdItem = newChatIdItem();
+    if (EvaSettings.instance().isChatIdShows()) {
+      if (chatIdItem != null) {
+        items.add(chatIdItem);
+        addedCount++;
+      }
+    }
 
     if (isPublic) {
       ListItem usernameItem = newUsernameItem();
