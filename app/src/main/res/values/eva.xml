@@ -16,4 +16,8 @@
 
     <!-- General settings -->
     <string name="ShowChatId">Show chat ID</string>
+
+    <!-- Chats settings -->
+    <string name="DisableCameraButton">Disable camera button</string>
+    <string name="DisableRecordButton">Disable record button</string>
 </resources>

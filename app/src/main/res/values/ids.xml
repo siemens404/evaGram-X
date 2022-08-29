@@ -1238,4 +1238,8 @@
 
   <!-- General settings buttons -->
   <item type="id" name="btn_showChatId" />
+
+  <!-- Chats settings buttons -->
+  <item type="id" name="btn_disableCameraButton" />
+  <item type="id" name="btn_disableRecordButton" />
 </resources>

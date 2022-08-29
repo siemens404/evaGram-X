@@ -33,6 +33,14 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
   @Override public void onClick (View v) {
     int id = v.getId();
     switch (id) {
+      case R.id.btn_disableCameraButton:
+          EvaSettings.instance().toggleDisableCameraButton();
+          adapter.updateValuedSettingById(R.id.btn_disableCameraButton);
+          break;
+      case R.id.btn_disableRecordButton:
+          EvaSettings.instance().toggleDisableRecordButton();
+          adapter.updateValuedSettingById(R.id.btn_disableRecordButton);
+          break;
     }
   }
 
@@ -49,8 +57,24 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
       @Override protected void setValuedSetting (ListItem item, SettingView view, boolean isUpdate) {
         view.setDrawModifier(item.getDrawModifier());
         switch (item.getId()) {
+          case R.id.btn_disableCameraButton:
+            view.getToggler().setRadioEnabled(EvaSettings.instance().isDisableCameraButton(), isUpdate);
+            break;
+          case R.id.btn_disableRecordButton:
+            view.getToggler().setRadioEnabled(EvaSettings.instance().isDisableRecordButton(), isUpdate);
+            break;
         }
       }
     };
+
+    ArrayList<ListItem> items = new ArrayList<>();
+
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableCameraButton, 0, R.string.DisableCameraButton));
+    items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableRecordButton, 0, R.string.DisableRecordButton));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+
+    adapter.setItems(items, true);
+    recyclerView.setAdapter(adapter);
   }
 }

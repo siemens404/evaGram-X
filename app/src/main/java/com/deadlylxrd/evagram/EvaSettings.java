@@ -32,6 +32,10 @@ public class EvaSettings {
   //
   // General
   public static final String KEY_SHOW_CHATID = "show_chatid"; // chat id
+  //
+  // Chats
+  private static final String KEY_DISABLE_CAMERA_BUTTON = "disable_camera_button";
+  private static final String KEY_DISABLE_RECORD_BUTTON = "disable_record_button";
 
   // evaSettings vars
   private static volatile EvaSettings instance;
@@ -186,6 +190,7 @@ public class EvaSettings {
     }
   }
 
+  // General
   public boolean isChatIdShows () {
     return getBoolean(KEY_SHOW_CHATID, false);
   }
@@ -193,5 +198,22 @@ public class EvaSettings {
   public void toggleShowChatID () {
     notifyNewSettingsListeners(KEY_SHOW_CHATID, !isChatIdShows(), isChatIdShows());
     putBoolean(KEY_SHOW_CHATID, !isChatIdShows());
+  }
+
+  // Chats
+  public boolean isDisableCameraButton () {
+    return getBoolean(KEY_DISABLE_CAMERA_BUTTON, false);
+  }
+
+  public void toggleDisableCameraButton () {
+    putBoolean(KEY_DISABLE_CAMERA_BUTTON, !isDisableCameraButton());
+  }
+
+  public boolean isDisableRecordButton () {
+    return getBoolean(KEY_DISABLE_RECORD_BUTTON, false);
+  }
+
+  public void toggleDisableRecordButton () {
+    putBoolean(KEY_DISABLE_RECORD_BUTTON, !isDisableRecordButton());
   }
 }
