@@ -33,6 +33,9 @@ public class EvaSettings {
   // General
   public static final String KEY_SHOW_CHATID = "show_chatid"; // chat id
   //
+  // Appearance
+  public static final String KEY_ENABLE_COMMENTS = "enable_comments";
+  //
   // Chats
   private static final String KEY_DISABLE_CAMERA_BUTTON = "disable_camera_button";
   private static final String KEY_DISABLE_RECORD_BUTTON = "disable_record_button";
@@ -198,6 +201,16 @@ public class EvaSettings {
   public void toggleShowChatID () {
     notifyNewSettingsListeners(KEY_SHOW_CHATID, !isChatIdShows(), isChatIdShows());
     putBoolean(KEY_SHOW_CHATID, !isChatIdShows());
+  }
+
+  // Appearance
+  public boolean isCommentsEnabled () {
+    return getBoolean(KEY_ENABLE_COMMENTS, false);
+  }
+
+  public void toggleEnableComments () {
+    notifyNewSettingsListeners(KEY_ENABLE_COMMENTS, !isCommentsEnabled(), isCommentsEnabled());
+    putBoolean(KEY_ENABLE_COMMENTS, !isCommentsEnabled());
   }
 
   // Chats

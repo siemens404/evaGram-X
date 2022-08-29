@@ -48,6 +48,8 @@ import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
 import androidx.collection.LongSparseArray;
 
+import com.deadlylxrd.evagram.EvaSettings;
+
 import org.drinkless.td.libcore.telegram.Client;
 import org.drinkless.td.libcore.telegram.TdApi;
 import org.drinkmore.Tracer;
@@ -836,7 +838,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
   }
 
   protected final boolean needCommentButton () {
-    if (!Config.COMMENTS_SUPPORTED || !msg.isChannelPost || isScheduled() || !allowInteraction() || isSponsored()) {
+    if (!EvaSettings.instance().isCommentsEnabled() || !msg.isChannelPost || isScheduled() || !allowInteraction() || isSponsored()) {
       return false;
     }
     TdApi.Message msg = this.msg;
@@ -856,7 +858,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
   }
 
   public final void openMessageThread (MessageId highlightMessageId) {
-    if (!Config.COMMENTS_SUPPORTED) {
+    if (!EvaSettings.instance().isCommentsEnabled()) {
       tdlib.ui().openMessage(controller(), highlightMessageId.getChatId(), highlightMessageId, openParameters());
       return;
     }
@@ -1867,7 +1869,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
       right -= isPinned.getScaledWidth(Screen.dp(COUNTER_ICON_MARGIN));
       if (needMetadata) {
         right -= Screen.dp(COUNTER_ADD_MARGIN);
-        if (getCommentMode() == COMMENT_MODE_NONE) {
+        if (getCommentMode() != COMMENT_MODE_NONE) {
           replyCounter.draw(c, right, top, Gravity.RIGHT, 1f, view, getTimePartIconColorId());
           right -= replyCounter.getScaledWidth(Screen.dp(COUNTER_ICON_MARGIN + COUNTER_ADD_MARGIN));
         }
@@ -2862,7 +2864,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
     }
 
     max -= isPinned.getScaledWidth(Screen.dp(COUNTER_ICON_MARGIN)) + Screen.dp(COUNTER_ADD_MARGIN);
-    if (getCommentMode() == COMMENT_MODE_NONE) {
+    if (getCommentMode() != COMMENT_MODE_NONE) {
       max -= replyCounter.getScaledWidth(Screen.dp(COUNTER_ICON_MARGIN + COUNTER_ADD_MARGIN));
     }
     if (getViewCountMode() == VIEW_COUNT_MAIN) {
@@ -3357,7 +3359,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
       shareCounter.draw(c, startX, counterY, Gravity.LEFT, 1f, view, iconColorId);
       startX += shareCounter.getScaledWidth(Screen.dp(COUNTER_ICON_MARGIN + COUNTER_ADD_MARGIN));
     }
-    if (getCommentMode() == COMMENT_MODE_NONE) {
+    if (getCommentMode() != COMMENT_MODE_NONE) {
       replyCounter.draw(c, startX, counterY, Gravity.LEFT, 1f, view, iconColorId);
       startX += replyCounter.getScaledWidth(Screen.dp(COUNTER_ICON_MARGIN + COUNTER_ADD_MARGIN));
     }
@@ -3432,7 +3434,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
       }
       width += shareCounter.getScaledOrTargetWidth(Screen.dp(COUNTER_ICON_MARGIN + COUNTER_ADD_MARGIN), isTarget);
     }
-    if (getCommentMode() == COMMENT_MODE_NONE) {
+    if (getCommentMode() != COMMENT_MODE_NONE) {
       width += replyCounter.getScaledOrTargetWidth(Screen.dp(COUNTER_ICON_MARGIN + COUNTER_ADD_MARGIN), isTarget);
     }
     width += isPinned.getScaledOrTargetWidth(Screen.dp(COUNTER_ICON_MARGIN), isTarget);
@@ -3811,7 +3813,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
   }
 
   public final int getReplyCount () {
-    if (!Config.COMMENTS_SUPPORTED || isThreadHeader()) {
+    if (!EvaSettings.instance().isCommentsEnabled() || isThreadHeader()) {
       return 0;
     }
     TdApi.MessageInteractionInfo info = msg.interactionInfo;
@@ -4928,7 +4930,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
       viewCounter.setCount(interactionInfo != null ? interactionInfo.viewCount : 0, animated && getViewCountMode() != VIEW_COUNT_HIDDEN);
     }
     int commentMode = getCommentMode();
-    replyCounter.setCount(getReplyCount(), commentMode == COMMENT_MODE_NONE && animated);
+    replyCounter.setCount(getReplyCount(), commentMode != COMMENT_MODE_NONE && animated);
     hasCommentButton.setValue(commentMode == COMMENT_MODE_BUTTON, animated);
     shareCounter.setCount(interactionInfo != null ? interactionInfo.forwardCount : 0, animated);
     isPinned.showHide(isPinned(), animated);
@@ -5650,7 +5652,7 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
             }
             break;
         }
-      } else if ((counter == replyCounter && getCommentMode() == COMMENT_MODE_NONE) || counter == shareCounter || counter == shrinkedReactionsCounter || counter == isPinned) {
+      } else if ((counter == replyCounter && getCommentMode() != COMMENT_MODE_NONE) || counter == shareCounter || counter == shrinkedReactionsCounter || counter == isPinned) {
         if (useBubbles() || (flags & FLAG_HEADER_ENABLED) != 0) {
           layoutInfo();
         }

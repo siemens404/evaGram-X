@@ -33,6 +33,10 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
   @Override public void onClick (View v) {
     int id = v.getId();
     switch (id) {
+      case R.id.btn_enableComments:
+        EvaSettings.instance().toggleEnableComments();
+        adapter.updateValuedSettingById(R.id.btn_enableComments);
+        break;
     }
   }
 
@@ -49,8 +53,20 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
       @Override protected void setValuedSetting (ListItem item, SettingView view, boolean isUpdate) {
         view.setDrawModifier(item.getDrawModifier());
         switch (item.getId()) {
+          case R.id.btn_enableComments:
+            view.getToggler().setRadioEnabled(EvaSettings.instance().isCommentsEnabled(), isUpdate);
+            break;
         }
       }
     };
+
+    ArrayList<ListItem> items = new ArrayList<>();
+
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_enableComments, 0, R.string.EnableComments));
+    items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.EnableCommentsDesc));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+
+    adapter.setItems(items, true);
+    recyclerView.setAdapter(adapter);
   }
 }

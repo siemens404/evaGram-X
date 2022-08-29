@@ -14,6 +14,10 @@
     <string name="EvaSourceCode">evaGram Source Code</string>
     <string name="SupportProject">Donate</string>
 
+    <!-- Appearance settings -->
+    <string name="EnableComments">Enable comments</string>
+    <string name="EnableCommentsDesc">Unstable. Works only when block-messages are enabled. Also recommended to disable big reactions in the interface settings</string>
+
     <!-- General settings -->
     <string name="ShowChatId">Show chat ID</string>
 
