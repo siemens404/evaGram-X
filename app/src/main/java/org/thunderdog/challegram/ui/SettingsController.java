@@ -28,6 +28,8 @@ import androidx.collection.SparseArrayCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.deadlylxrd.evagram.ui.SettingsEvaController;
+
 import org.drinkless.td.libcore.telegram.Client;
 import org.drinkless.td.libcore.telegram.TdApi;
 import org.thunderdog.challegram.BuildConfig;
@@ -610,6 +612,10 @@ public class SettingsController extends ViewController<Void> implements
     items.add(new ListItem(ListItem.TYPE_INFO_MULTILINE, R.id.btn_bio, R.drawable.baseline_info_24, R.string.UserBio).setContentStrings(R.string.LoadingInformation, R.string.BioNone));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
+    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_evaSettings, R.drawable.baseline_settings_24, R.string.EvaSettings));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+
     TdApi.SuggestedAction[] actions = tdlib.getSuggestedActions();
     int addedActionItems = 0;
     for (TdApi.SuggestedAction action : actions) {
@@ -952,6 +958,10 @@ public class SettingsController extends ViewController<Void> implements
         navigateTo(c);
         break;
       }
+      case R.id.btn_evaSettings: {
+        navigateTo(new SettingsEvaController(context, tdlib));
+        break;
+      }
       case R.id.btn_languageSettings: {
         navigateTo(new SettingsLanguageController(context, tdlib));
         break;
@@ -962,20 +972,6 @@ public class SettingsController extends ViewController<Void> implements
       }
       case R.id.btn_devices: {
         navigateTo(new SettingsSessionsController(context, tdlib));
-        break;
-      }
-      case R.id.btn_checkUpdates: {
-        viewGooglePlay();
-        break;
-      }
-      case R.id.btn_subscribeToBeta: {
-        tdlib.ui().subscribeToBeta(this);
-        break;
-      }
-      case R.id.btn_sourceCodeChanges: {
-        // TODO provide an ability to view changes in PRs if they are present in both builds
-        AppBuildInfo appBuildInfo = Settings.instance().getCurrentBuildInformation();
-        tdlib.ui().openUrl(this, appBuildInfo.changesUrlFrom(previousBuildInfo), new TdlibUi.UrlOpenParameters().disableInstantView());
         break;
       }
       case R.id.btn_tdlib: {

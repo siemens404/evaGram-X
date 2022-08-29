@@ -2,4 +2,14 @@
 <resources>
     <!-- evaGram main strings -->
     <string name="evaAppName" translatable="false">evaGram</string>
+
+    <!-- evaGram settings (main) -->
+    <string name="EvaSettings">evaGram Settings</string>
+    <string name="GeneralSettings">General</string>
+    <string name="AppearanceSettings">Appearance</string>
+    <string name="ChatsSettings">Chats</string>
+    <string name="ExperimentalSettings">Experimental</string>
+    <string name="TgChannel">Telegram channel</string>
+    <string name="EvaSourceCode">evaGram Source Code</string>
+    <string name="SupportProject">Donate</string>
 </resources>

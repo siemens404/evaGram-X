@@ -705,8 +705,6 @@
   <item type="id" name="btn_inlineClose" />
   <item type="id" name="btn_inlineOpen" />
   <item type="id" name="btn_copyText" />
-  <item type="id" name="btn_sourceCode" />
-  <item type="id" name="btn_sourceCodeChanges" />
   <item type="id" name="btn_copyDebug" />
   <item type="id" name="btn_pasteText" />
   <item type="id" name="btn_copyUsername" />
@@ -1216,4 +1214,22 @@
   <item type="id" name="btn_themeCreateInfo" />
   <item type="id" name="btn_themeExportNeedDefault" />
   <item type="id" name="btn_themeExportSetAuthor" />
+
+  <!-- evaGram IDs -->
+
+  <!-- Controllers -->
+  <item type="id" name="controller_evaSettings" />
+  <item type="id" name="contoller_generalSettings" />
+  <item type="id" name="controller_appearanceSettings" />
+  <item type="id" name="controller_chatsSettings" />
+  <item type="id" name="controller_experimentalSettings" />
+  
+  <!-- evaSettings buttons -->
+  <item type="id" name="btn_generalSettings" />
+  <item type="id" name="btn_appearanceSettings" />
+  <item type="id" name="btn_chatsSettings" />
+  <item type="id" name="btn_experimentalSettings" />
+  <item type="id" name="btn_tgChannel" />
+  <item type="id" name="btn_sourceCode" />
+  <item type="id" name="btn_supportProject" />
 </resources>
