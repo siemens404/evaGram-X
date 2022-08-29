@@ -103,6 +103,7 @@ public class ChatHeaderView extends ComplexHeaderView {
     }
 
     if (messageThread != null) {
+      setChatPhoto(chat, chat.photo);
       setInnerMargins(Screen.dp(56f), Screen.dp(49f));
       setText(Lang.plural(messageThread.areComments() ? R.string.xComments : R.string.xReplies, messageThread.getSize()), null);
       attachChatStatus(messageThread.getChatId(), messageThread.getMessageThreadId());

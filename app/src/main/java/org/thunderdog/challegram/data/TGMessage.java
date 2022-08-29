@@ -1952,6 +1952,9 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
     // Reaction bubbles
     if (useReactionBubbles) {
       int top = (int) (this.height - messageReactions.getAnimatedHeight() - getExtraPadding());
+      if (needCommentButton()) {
+        top -= getCommentButtonHeight();
+      }
       if (!useBubbles) {
         drawReactionsWithBubbles(c, view, xContentLeft, top - Screen.dp(9));
       } else {
@@ -1964,7 +1967,11 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
           }
           drawReactionsWithBubbles(c, view, left, top - Screen.dp(6));
         } else {
-          drawReactionsWithBubbles(c, view, (int) bubblePathRect.left + xReactionBubblePadding, (bottomContentEdge - (int) messageReactions.getAnimatedHeight() - timeAddedHeight - xReactionBubblePaddingBottom));
+          int reactionsY = (bottomContentEdge - (int) messageReactions.getAnimatedHeight() - timeAddedHeight - xReactionBubblePaddingBottom);
+          if (needCommentButton()) {
+            reactionsY -= getCommentButtonHeight();
+          }
+          drawReactionsWithBubbles(c, view, (int) bubblePathRect.left + xReactionBubblePadding, reactionsY);
         }
       }
     }
@@ -6491,6 +6498,17 @@ public abstract class TGMessage implements MultipleViewProvider.InvalidateConten
     Drawables.draw(c, drawable, startX + Screen.dp(12f), cy - drawable.getMinimumHeight() / 2f, PorterDuffPaint.get(iconColorId, alpha));
 
     // TODO draw text, avatars, ripple effect
+
+    String text = Lang.plural(R.string.ViewXComments, getReplyCount());
+    TextStyleProvider tsp = getSmallerTextStyleProvider();
+    TextColorSet tcs = TextColorSets.Regular.LINK;
+    int textStartX = startX + Screen.dp(12f + 22f + 12f);
+    int textMaxWidth = endX - textStartX;
+    Text textToDraw = new Text.Builder(text, textMaxWidth, tsp, tcs)
+      .singleLine()
+      .build();
+    int textStartY = cy - textToDraw.getLineCenterY();
+    textToDraw.draw(c, textStartX, textStartY);
 
     DrawAlgorithms.drawDirection(c, endX - Screen.dp(12f), cy, ColorUtils.alphaColor(alpha, Theme.getColor(iconColorId)), Gravity.RIGHT);
   }
