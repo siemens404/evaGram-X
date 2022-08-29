@@ -15,7 +15,7 @@
 
     <!-- Appearance settings -->
     <string name="EnableComments">Включить комментарии</string>
-    <string name="EnableCommentsDesc">Нестабильно. Работает, только если включены сообщения-блоки в каналах. Также рекомендуется отключить большие реакции в настройках интерфейса</string>
+    <string name="EnableCommentsDesc">Работает только если включены сообщения-блоки в каналах</string>
 
     <!-- General settings -->
     <string name="ShowChatId">Показывать ID в профиле</string>

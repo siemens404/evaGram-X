@@ -17,7 +17,7 @@
 
     <!-- Appearance settings -->
     <string name="EnableComments">Enable comments</string>
-    <string name="EnableCommentsDesc">Unstable. Works only when block-messages are enabled. Also recommended to disable big reactions in the interface settings</string>
+    <string name="EnableCommentsDesc">Works only when block-messages are enabled</string>
 
     <!-- General settings -->
     <string name="ShowChatId">Show chat ID</string>
