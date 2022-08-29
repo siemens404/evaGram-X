@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- evaGram settings (main) -->
+    <string name="EvaSettings">Настройки evaGram</string>
+    <string name="GeneralSettings">Общие</string>
+    <string name="AppearanceSettings">Внешний вид</string>
+    <string name="ChatsSettings">Чаты</string>
+    <string name="ExperimentalSettings">Экспериментальные</string>
+    <string name="TgChannel">Telegram канал</string>
+    <string name="EvaSourceCode">Исходный код</string>
+    <string name="SupportProject">Поддержать проект</string>
+
+    <!-- Appearance settings -->
+    <string name="EnableComments">Включить комментарии</string>
+    <string name="EnableCommentsDesc">Нестабильно. Работает, только если включены сообщения-блоки в каналах. Также рекомендуется отключить большие реакции в настройках интерфейса</string>
+
+    <!-- General settings -->
+    <string name="ShowChatId">Показывать ID в профиле</string>
+
+    <!-- Chats settings -->
+    <string name="DisableCameraButton">Отключить кнопку камеры</string>
+    <string name="DisableRecordButton">Отключить кнопку записи</string>
+</resources>
