@@ -99,15 +99,15 @@ public class CustomDrawerController extends RecyclerViewController<Void> impleme
 
     // Custom drawer sections
     items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
-    items.add(new ListItem(ListItem.TYPE_HEADER, 0, 0, R.string.DrawerSettingsDesc));
+    items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.DrawerSettingsDesc));
     items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
 
-    items.add(new ListItem(ListItem.TYPE_CHECKBOX_OPTION, R.id.btn_drawerContacts, 0, R.string.Contacts));
-    items.add(new ListItem(ListItem.TYPE_CHECKBOX_OPTION, R.id.btn_drawerCalls, 0, R.string.Calls));
-    items.add(new ListItem(ListItem.TYPE_CHECKBOX_OPTION, R.id.btn_drawerFavourite, 0, R.string.SavedMessages));
-    items.add(new ListItem(ListItem.TYPE_CHECKBOX_OPTION, R.id.btn_drawerInviteFriends, 0, R.string.InviteFriends));
-    items.add(new ListItem(ListItem.TYPE_CHECKBOX_OPTION, R.id.btn_drawerHelp, 0, R.string.Help));
-    items.add(new ListItem(ListItem.TYPE_CHECKBOX_OPTION, R.id.btn_drawerNightMode, 0, R.string.NightMode));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_drawerContacts, 0, R.string.Contacts));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_drawerCalls, 0, R.string.Calls));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_drawerFavourite, 0, R.string.SavedMessages));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_drawerInviteFriends, 0, R.string.InviteFriends));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_drawerHelp, 0, R.string.Help));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_drawerNightMode, 0, R.string.NightMode));
 
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
