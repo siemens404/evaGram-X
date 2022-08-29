@@ -34,18 +34,17 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
     int id = v.getId();
     switch (id) {
       case R.id.btn_disableCameraButton:
-          EvaSettings.instance().toggleDisableCameraButton();
-          adapter.updateValuedSettingById(R.id.btn_disableCameraButton);
-          break;
+        EvaSettings.instance().toggleDisableCameraButton();
+        adapter.updateValuedSettingById(R.id.btn_disableCameraButton);
+        break;
       case R.id.btn_disableRecordButton:
-          EvaSettings.instance().toggleDisableRecordButton();
-          adapter.updateValuedSettingById(R.id.btn_disableRecordButton);
-          break;
+        EvaSettings.instance().toggleDisableRecordButton();
+        adapter.updateValuedSettingById(R.id.btn_disableRecordButton);
+        break;
     }
   }
 
-    @Override public void onApplySettings (int id, SparseIntArray result) {
-    }
+  @Override public void onApplySettings (int id, SparseIntArray result) {
   }
 
   @Override public int getId () {

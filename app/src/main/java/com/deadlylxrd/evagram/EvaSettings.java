@@ -37,8 +37,8 @@ public class EvaSettings {
   public static final String KEY_ENABLE_COMMENTS = "enable_comments";
   //
   // Chats
-  private static final String KEY_DISABLE_CAMERA_BUTTON = "disable_camera_button";
-  private static final String KEY_DISABLE_RECORD_BUTTON = "disable_record_button";
+  public static final String KEY_DISABLE_CAMERA_BUTTON = "disable_camera_button";
+  public static final String KEY_DISABLE_RECORD_BUTTON = "disable_record_button";
 
   // evaSettings vars
   private static volatile EvaSettings instance;

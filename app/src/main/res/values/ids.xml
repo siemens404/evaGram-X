@@ -1222,18 +1222,20 @@
 
   <!-- Controllers -->
   <item type="id" name="controller_evaSettings" />
-  <item type="id" name="contoller_generalSettings" />
+  <item type="id" name="controller_generalSettings" />
   <item type="id" name="controller_appearanceSettings" />
   <item type="id" name="controller_chatsSettings" />
   <item type="id" name="controller_experimentalSettings" />
   
   <!-- evaSettings buttons -->
+  <item type="id" name="btn_evaSettings" />
   <item type="id" name="btn_generalSettings" />
   <item type="id" name="btn_appearanceSettings" />
   <item type="id" name="btn_chatsSettings" />
   <item type="id" name="btn_experimentalSettings" />
   <item type="id" name="btn_tgChannel" />
   <item type="id" name="btn_sourceCode" />
+  <item type="id" name="btn_sourceCodeChanges" />
   <item type="id" name="btn_supportProject" />
 
   <!-- General settings buttons -->
