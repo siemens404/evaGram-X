@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- evaGram main strings -->
+    <string name="evaAppName" translatable="false">evaGram</string>
+</resources>

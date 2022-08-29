@@ -114,7 +114,7 @@ android {
 
     val versionCodeOverride = versionCode * 1000 + abi * 10
     val versionNameOverride = "${variant.versionName}.${defaultConfig.versionCode}${if (extra.has("app_version_suffix")) extra["app_version_suffix"] else ""}-${abiVariant.displayName}${if (extra.has("app_name_suffix")) "-" + extra["app_name_suffix"] else ""}${if (variant.buildType.isDebuggable) "-debug" else ""}"
-    val projectName = properties.getProperty("app.name", "Telegram X")
+    val projectName = properties.getProperty("app.name", "evaGram")
     val outputFileNamePrefix = properties.getProperty("app.file", projectName.replace(" ", "-").replace("#", ""))
     val fileName = "${outputFileNamePrefix}-${versionNameOverride.replace("-universal(?=-|\$)", "")}"
 

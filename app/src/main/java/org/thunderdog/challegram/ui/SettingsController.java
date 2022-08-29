@@ -663,30 +663,6 @@ public class SettingsController extends ViewController<Void> implements
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
-    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_checkUpdates, R.drawable.baseline_google_play_24, U.isAppSideLoaded() ? R.string.AppOnGooglePlay : R.string.CheckForUpdates));
-    items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-    if (!U.isAppSideLoaded()) {
-      items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_subscribeToBeta, R.drawable.templarian_baseline_flask_24, R.string.SubscribeToBeta));
-      items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-    }
-    items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_sourceCode, R.drawable.baseline_github_24, R.string.ViewSourceCode));
-    items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-    this.previousBuildInfo = Settings.instance().getPreviousBuildInformation();
-    if (this.previousBuildInfo != null) {
-      items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_sourceCodeChanges, R.drawable.baseline_code_24, R.string.ViewSourceCodeChanges));
-      items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-    }
-    AppBuildInfo currentBuildInfo = Settings.instance().getCurrentBuildInformation();
-    if (!currentBuildInfo.getPullRequests().isEmpty()) {
-      for (PullRequest pullRequest : currentBuildInfo.getPullRequests()) {
-        String title = Lang.getString(R.string.PullRequestCommit, pullRequest.getId());
-        if (!pullRequest.getCommitAuthor().isEmpty()) {
-          title = Lang.getString(R.string.format_PRMadeBy, title, pullRequest.getCommitAuthor());
-        }
-        items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_sourceCode, R.drawable.templarian_baseline_source_merge_24, title, false).setData(pullRequest));
-        items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-      }
-    }
     items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_copyDebug, R.drawable.baseline_bug_report_24, R.string.CopyReportData));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 

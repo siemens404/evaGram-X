@@ -10,11 +10,14 @@ obj
 
 *.apk
 *.iml
+*.hprof
 
 /builds
 
 /captures
 /local.properties
+
+output-metadata.json
 
 libc++_shared.so
 
