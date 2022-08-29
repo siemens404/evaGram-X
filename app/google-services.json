@@ -1,42 +1,41 @@
 {
   "project_info": {
-    "project_number": "1037154859800",
-    "firebase_url": "https://scenic-parity-125411.firebaseio.com",
-    "project_id": "scenic-parity-125411",
-    "storage_bucket": "scenic-parity-125411.appspot.com"
+    "project_number": "448759353930",
+    "project_id": "evagram-tgx",
+    "storage_bucket": "evagram-tgx.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1037154859800:android:683d617a5fe76437",
+        "mobilesdk_app_id": "1:448759353930:android:16ac69a433c2b06ebe4cb3",
         "android_client_info": {
-          "package_name": "org.thunderdog.challegram"
+          "package_name": "com.deadlylxrd.evagram"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1037154859800-dfe7lhqj3s47e7o0rn2u6k0uoimtcp46.apps.googleusercontent.com",
+          "client_id": "448759353930-5hvcggjcpp6u26rri7c6d12jrcvvbr8e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "org.thunderdog.challegram",
-            "certificate_hash": "66462134345a6adac3c1d5aea9cef0421b7cab68"
+            "package_name": "com.deadlylxrd.evagram",
+            "certificate_hash": "2ecbb1c15515af93f5af9be675df366ec92ca364"
           }
         },
         {
-          "client_id": "1037154859800-paj1p13kqdomi5fjjp7eutdk8j3o0him.apps.googleusercontent.com",
+          "client_id": "448759353930-9o60b7hnkuj2s5r2e67lfvos0g32391v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC_eeOn-j16lB49kGu_SnTujJwYNvMcWu4"
+          "current_key": "AIzaSyDZ0MfH30jtMfPrsafTiHDG7OivsrN_GfE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1037154859800-4q54bedjpc13u5r0slc2hvfcl5t657ku.apps.googleusercontent.com",
+              "client_id": "448759353930-9o60b7hnkuj2s5r2e67lfvos0g32391v.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
