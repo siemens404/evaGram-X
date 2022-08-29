@@ -63,6 +63,8 @@ import org.thunderdog.challegram.tool.Paints;
 import org.thunderdog.challegram.tool.Screen;
 import org.thunderdog.challegram.tool.UI;
 import org.thunderdog.challegram.tool.Views;
+import org.thunderdog.challegram.ui.CallController;
+import org.thunderdog.challegram.ui.CallListController;
 import org.thunderdog.challegram.ui.ChatsController;
 import org.thunderdog.challegram.ui.ListItem;
 import org.thunderdog.challegram.ui.PeopleController;
@@ -256,6 +258,7 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
     }
 
     items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_contacts, R.drawable.baseline_perm_contact_calendar_24, R.string.Contacts));
+    items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_calls, R.drawable.baseline_call_24, R.string.Calls));
     items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_savedMessages, R.drawable.baseline_bookmark_24, R.string.SavedMessages));
     this.settingsErrorIcon = getSettingsErrorIcon();
     items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_settings, R.drawable.baseline_settings_24, R.string.Settings));
@@ -843,6 +846,9 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
         // openEmptyChat();
         break;
       }
+      case R.id.btn_calls: {
+        openCalls();
+      }
       case R.id.btn_reportBug: {
         if (Test.NEED_CLICK) {
           Test.onClick(context);
@@ -993,6 +999,12 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       c.setNeedSearch();
       openController(c);
     });
+  }
+
+  private void openCalls () {
+    CallListController c = new CallListController(context, context.currentTdlib());
+    c.setName(Lang.getString(R.string.Calls));
+    openController(c);
   }
 
   private boolean ignoreClose;
