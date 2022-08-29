@@ -2086,7 +2086,11 @@ public class Tdlib implements TdlibProvider, Settings.SettingsChangeListener {
   }
 
   public TdApi.ChatFilterInfo[] chatFilters () {
-    return chatFilters;
+    if (chatFilters == null) {
+      return new TdApi.ChatFilterInfo[0];
+    } else {
+      return chatFilters;
+    }
   }
 
   public TdlibManager context () {
