@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- evaGram main strings -->
+    <string name="HiddenNumber">Номер скрыт</string>
     <string name="MessageRepeat">Повтор</string>
 
     <!-- evaGram settings (main) -->
@@ -14,6 +15,8 @@
     <string name="SupportProject">Поддержать проект</string>
 
     <!-- Appearance settings -->
+    <string name="HideNumber">Скрыть номер телефона</string>
+    <string name="HideNumberDesc">Скрывает номер телефона в боковом меню и настройках</string>
     <string name="EnableComments">Включить комментарии</string>
     <string name="EnableCommentsDesc">Работает только если включены сообщения-блоки в каналах</string>
 

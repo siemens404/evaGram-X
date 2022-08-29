@@ -3,6 +3,7 @@
     <!-- evaGram main strings -->
     <string name="evaAppName" translatable="false">evaGram</string>
     <string name="ChatId" translatable="false">ID</string>
+    <string name="HiddenNumber">Hidden number</string>
     <string name="MessageRepeat">Repeat</string>
 
     <!-- evaGram settings (main) -->
@@ -16,6 +17,8 @@
     <string name="SupportProject">Donate</string>
 
     <!-- Appearance settings -->
+    <string name="HideNumber">Hide phone number</string>
+    <string name="HideNumberDesc">Hiding a phone number in the drawer and settings</string>
     <string name="EnableComments">Enable comments</string>
     <string name="EnableCommentsDesc">Works only when block-messages are enabled</string>
 

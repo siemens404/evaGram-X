@@ -25,6 +25,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import com.deadlylxrd.evagram.EvaSettings;
+
 import org.drinkless.td.libcore.telegram.TdApi;
 import org.thunderdog.challegram.FillingDrawable;
 import org.thunderdog.challegram.R;
@@ -243,8 +245,8 @@ public class DrawerHeaderView extends View implements Destroyable, GlobalAccount
       userId = account.getKnownUserId();
       if (account.hasUserInfo()) {
         name = account.getName();
-        if (Settings.instance().needHidePhoneNumber()) {
-          phone = Strings.replaceNumbers(Strings.formatPhone(account.getPhoneNumber()));
+        if (EvaSettings.instance().isNumberHidden()) {
+          phone = Lang.getString(R.string.HiddenNumber);
         } else {
           phone = Strings.formatPhone(account.getPhoneNumber());
         }

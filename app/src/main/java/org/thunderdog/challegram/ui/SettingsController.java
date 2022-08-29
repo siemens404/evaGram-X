@@ -28,6 +28,7 @@ import androidx.collection.SparseArrayCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.deadlylxrd.evagram.EvaSettings;
 import com.deadlylxrd.evagram.ui.SettingsEvaController;
 
 import org.drinkless.td.libcore.telegram.Client;
@@ -897,9 +898,10 @@ public class SettingsController extends ViewController<Void> implements
   private boolean setPhoneNumber (@Nullable TdApi.User user) {
     String displayPhoneNumber;
     if (user != null) {
-      displayPhoneNumber = originalPhoneNumber = Strings.formatPhone(user.phoneNumber);
-      if (Settings.instance().needHidePhoneNumber()) {
-        displayPhoneNumber = Strings.replaceNumbers(displayPhoneNumber);
+      if (EvaSettings.instance().isNumberHidden()) {
+        displayPhoneNumber = Lang.getString(R.string.NumberHidden);
+      } else {
+        displayPhoneNumber = originalPhoneNumber = Strings.formatPhone(user.phoneNumber);
       }
     } else {
       displayPhoneNumber = Lang.getString(R.string.LoadingPhone);

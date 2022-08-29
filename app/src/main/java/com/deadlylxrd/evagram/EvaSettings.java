@@ -34,6 +34,7 @@ public class EvaSettings {
   public static final String KEY_SHOW_CHATID = "show_chatid"; // chat id
   //
   // Appearance
+  public static final String KEY_HIDE_NUMBER = "hide_number";
   public static final String KEY_ENABLE_COMMENTS = "enable_comments";
   //
   // Chats
@@ -215,6 +216,15 @@ public class EvaSettings {
   public void toggleEnableComments () {
     notifyNewSettingsListeners(KEY_ENABLE_COMMENTS, !isCommentsEnabled(), isCommentsEnabled());
     putBoolean(KEY_ENABLE_COMMENTS, !isCommentsEnabled());
+  }
+
+  public boolean isNumberHidden () {
+    return getBoolean(KEY_HIDE_NUMBER, false);
+  }
+
+  public void toggleHideNumber () {
+    notifyNewSettingsListener(KEY_HIDE_NUMBER, !isNumberHidden(), isNumberHidden());
+    putBoolean(KEY_HIDE_NUMBER, !isNumberHidden());
   }
 
   // Chats
