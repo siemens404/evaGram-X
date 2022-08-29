@@ -645,16 +645,6 @@ public class MainController extends ViewPagerController<Void> implements Menu, M
         }
         break;
       }
-      case R.id.btn_float_addContact: {
-        navigateTo(new PhoneController(context, tdlib).setMode(PhoneController.MODE_ADD_CONTACT));
-        break;
-      }
-      case R.id.btn_float_call: {
-        ContactsController c = new ContactsController(context, tdlib);
-        c.initWithMode(ContactsController.MODE_CALL);
-        navigateTo(c);
-        break;
-      }
       case R.id.btn_float_compose: {
         if (navigationController != null && headerView != null && !navigationController.isAnimating() && !headerView.isAnimating() && composeWrap != null) {
           composeWrap.toggle();
@@ -692,21 +682,6 @@ public class MainController extends ViewPagerController<Void> implements Menu, M
     if (!inSearchMode()) {
       composeWrap.show();
     }
-    composeWrap.replaceMainButton(R.id.btn_float_compose, R.drawable.baseline_create_24);
-    // switch (position) {
-    //   case POSITION_CHATS: {
-    //     composeWrap.replaceMainButton(R.id.btn_float_compose, R.drawable.baseline_create_24);
-    //     break;
-    //   }
-    //   case POSITION_CALLS: {
-    //     composeWrap.replaceMainButton(R.id.btn_float_call, R.drawable.baseline_phone_24);
-    //     break;
-    //   }
-    //   case POSITION_PEOPLE: {
-    //     composeWrap.replaceMainButton(R.id.btn_float_addContact, R.drawable.baseline_person_add_24);
-    //     break;
-    //   }
-    // }
   }
 
   @Override
