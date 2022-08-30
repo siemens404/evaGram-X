@@ -314,7 +314,7 @@ public class EvaSettings {
   }
 
   public void toggleDrawerInviteFriends () {
-    putBoolean(KEY_DRAWER_INVITE_FRIENDS, isDrawerFriendsShow());
+    putBoolean(KEY_DRAWER_INVITE_FRIENDS, !isDrawerFriendsShow());
   }
 
   public boolean isDrawerHelpShow () {
@@ -322,7 +322,7 @@ public class EvaSettings {
   }
 
   public void toggleDrawerHelp () {
-    putBoolean(KEY_DRAWER_HELP, isDrawerHelpShow());
+    putBoolean(KEY_DRAWER_HELP, !isDrawerHelpShow());
   }
 
   public boolean isDrawerNightmodeShow () {
