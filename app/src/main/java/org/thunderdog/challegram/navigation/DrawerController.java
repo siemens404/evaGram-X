@@ -270,7 +270,7 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
     }
     this.settingsErrorIcon = getSettingsErrorIcon();
     items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_settings, R.drawable.baseline_settings_24, R.string.Settings));
-    if (!EvaSettings.instance().isDrawerFriendsShow()) {
+    if (EvaSettings.instance().isDrawerFriendsShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_invite, R.drawable.baseline_person_add_24, R.string.InviteFriends));
     }
 
@@ -279,7 +279,7 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       proxyItem.setSelected(Settings.instance().getEffectiveProxyId() != Settings.PROXY_ID_NONE);
       items.add(proxyItem);
     }
-    if (!EvaSettings.instance().isDrawerHelpShow()) {
+    if (EvaSettings.instance().isDrawerHelpShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_help, R.drawable.baseline_help_24, R.string.Help));
     }
     if (EvaSettings.instance().isDrawerNightmodeShow()) {
