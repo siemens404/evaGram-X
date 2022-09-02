@@ -227,7 +227,8 @@ dependencies {
 
   // TODO: upgrade to "com.googlecode.mp4parser:isoparser:1.1.22" or latest
   // mp4parser: https://github.com/sannies/mp4parser/releases
-  implementation("com.googlecode.mp4parser:isoparser:1.0.6")
+  implementation("com.googlecode.mp4parser:isoparser:1.1.22")
+
 }
 
 if (!isExperimentalBuild) {
