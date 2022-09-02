@@ -256,7 +256,9 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
 
     if ((showingAccounts = Settings.instance().isAccountListOpened())) {
       fillAccountItems(items);
-      headerView.getExpanderView().setExpanded(true, false);
+      if (!headerView.getExpanderView().isExpanded()) {
+        headerView.getExpanderView().setExpanded(true, false);
+      }
     }
 
     if (EvaSettings.instance().isDrawerContactsShow()) {
