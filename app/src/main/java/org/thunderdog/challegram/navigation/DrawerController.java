@@ -256,9 +256,7 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
 
     if ((showingAccounts = Settings.instance().isAccountListOpened())) {
       fillAccountItems(items);
-      if (!headerView.getExpanderView().isExpanded()) {
-        headerView.getExpanderView().setExpanded(true, false);
-      }
+      headerView.getExpanderView().setExpanded(true, false);
     }
 
     if (EvaSettings.instance().isDrawerContactsShow()) {
@@ -779,8 +777,16 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       adapter.getItems().addAll(1, items);
       adapter.notifyItemRangeInserted(1, items.size());
     } else {
-      int count = adapter.indexOfViewById(R.id.btn_contacts) - 1;
-      adapter.removeRange(1, count);
+      if (!EvaSettings.instance().isDrawerContactsShow()) {
+        int count = adapter.indexOfViewById(R.id.btn_calls) - 1;
+        adapter.removeRange(1, count);
+      } else if (!EvaSettings.instance().isDrawerCallsShow()) {
+        int count = adapter.indexOfViewById(R.id.btn_savedMessages) - 1;
+        adapter.removeRange(1, count);
+      } else if (!EvaSettings.instance().isDrawerFavouriteShow()) {
+        int count = adapter.indexOfViewById(R.id.btn_settings) - 1;
+        adapter.removeRange(1, count);
+      }
     }
   }
 

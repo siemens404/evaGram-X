@@ -1228,6 +1228,7 @@
   <item type="id" name="controller_chatsSettings" />
   <item type="id" name="controller_experimentalSettings" />
   <item type="id" name="controller_drawerSettings" />
+  <item type="id" name="controller_msgMenuSettings" />
   
   <!-- evaSettings buttons -->
   <item type="id" name="btn_evaSettings" />
@@ -1251,6 +1252,8 @@
   <item type="id" name="btn_disableCameraButton" />
   <item type="id" name="btn_disableRecordButton" />
   <item type="id" name="btn_rememberSendOptions" />
+  <item type="id" name="btn_disableReactions" />
+  <item type="id" name="btn_msgMenuSettings" />
 
   <!-- Drawer settings buttons -->
   <item type="id" name="btn_drawerSettings" />

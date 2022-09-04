@@ -5,6 +5,7 @@ import android.util.SparseIntArray;
 import android.view.View;
 
 import com.deadlylxrd.evagram.EvaSettings;
+import com.deadlylxrd.evagram.ui.MsgMenuController;
 
 import org.thunderdog.challegram.R;
 import org.thunderdog.challegram.component.base.SettingView;
@@ -45,6 +46,13 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
         EvaSettings.instance().toggleRememberSendOptions();
         adapter.updateValuedSettingById(R.id.btn_rememberSendOptions);
         break;
+      case R.id.btn_disableReactions:
+        EvaSettings.instance().toggleDisableReactions();
+        adapter.updateValuedSettingById(R.id.btn_disableReactions);
+        break;
+      case R.id.btn_msgMenuSettings:
+        navigateTo(new MsgMenuController(context, tdlib));
+        break;
     }
   }
 
@@ -69,6 +77,9 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
           case R.id.btn_rememberSendOptions:
 	    view.getToggler().setRadioEnabled(EvaSettings.instance().isRememberSendOptions(), isUpdate);
 	    break;
+          case R.id.btn_disableReactions:
+            view.getToggler().setRadioEnabled(EvaSettings.instance().isReactionsDisabled(), isUpdate);
+            break;
         }
       }
     };
@@ -82,8 +93,14 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_rememberSendOptions, 0, R.string.RememberSendOptions));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.RememberSendOptionsDesc));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
+    items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableReactions, 0, R.string.DisableReactions));
+    items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
+    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_msgMenuSettings, 0, R.string.MsgMenuSettings));
+    items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     adapter.setItems(items, true);
     recyclerView.setAdapter(adapter);
   }
 }
+

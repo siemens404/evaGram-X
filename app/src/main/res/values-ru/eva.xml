@@ -30,4 +30,7 @@
     <string name="DisableRecordButton">Отключить кнопку записи</string>
     <string name="RememberSendOptions">Запоминать опции отправки</string>
     <string name="RememberSendOptionsDesc">Сохраняет состояние опций отравки, таких как отправка без звука, отправка без автора, отправка без подписи</string>
+    <string name="DisableReactions">Отключить реакции</string>
+    <string name="MsgMenuSettings">Меню сообщений</string>
+    <string name="MsgMenuSettingsDesc">В этом разделе Вы можете выбрать, какие пункты будут отображаться в меню сообщений</string>
 </resources>

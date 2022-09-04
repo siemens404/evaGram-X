@@ -603,7 +603,7 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
       boolean withReactions = false;
       TdApi.Chat chat = msg.getChat();
       if (chat != null) {
-        if (chat.availableReactions != null) {
+        if (!EvaSettings.instance().isReactionsDisabled() && chat.availableReactions != null) {
           if (chat.availableReactions.length > 0) {
             withReactions = true;
           }
@@ -626,9 +626,11 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
     // Promotion
 
     if (msg.isSponsored()) {
-      ids.append(R.id.btn_messageCopy);
-      strings.append(R.string.Copy);
-      icons.append(R.drawable.baseline_content_copy_24);
+      if (EvaSettings.instance().isMsgCopy()) {
+        ids.append(R.id.btn_messageCopy);
+        strings.append(R.string.Copy);
+        icons.append(R.drawable.baseline_content_copy_24);
+      }
 
       ids.append(R.id.btn_messageSponsorInfo);
       strings.append(R.string.SponsoredInfoMenu);
@@ -739,14 +741,18 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
           icons.append(TD.EMOJI_DART.textRepresentation.equals(emoji) ? R.drawable.baseline_gps_fixed_24 : R.drawable.baseline_casino_24);
         }
 
-        ids.append(R.id.btn_messageReply);
-        strings.append(R.string.Reply);
-        icons.append(R.drawable.baseline_reply_24);
+        if (EvaSettings.instance().isMsgReply()) {
+          ids.append(R.id.btn_messageReply);
+          strings.append(R.string.Reply);
+          icons.append(R.drawable.baseline_reply_24);
+        }
 
-        if (msg.canBeForwarded() || msg instanceof TGMessageText || msg instanceof TGMessageSticker) {
-          ids.append(R.id.btn_messageRepeat);
-          strings.append(R.string.MessageRepeat);
-          icons.append(R.drawable.baseline_repeat_24);
+        if (EvaSettings.instance().isMsgRepeat()) {
+          if (msg.canBeForwarded() || msg instanceof TGMessageText || msg instanceof TGMessageSticker) {
+            ids.append(R.id.btn_messageRepeat);
+            strings.append(R.string.MessageRepeat);
+            icons.append(R.drawable.baseline_repeat_24);
+          }
         }
 
       }
@@ -766,10 +772,12 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
         }
       }
 
-      if (msg.canBeForwarded() && isSent) {
-        ids.append(R.id.btn_messageShare);
-        strings.append(R.string.Share);
-        icons.append(R.drawable.baseline_forward_24);
+      if (EvaSettings.instance().isMsgRepost()) {
+        if (msg.canBeForwarded() && isSent) {
+          ids.append(R.id.btn_messageShare);
+          strings.append(R.string.Share);
+          icons.append(R.drawable.baseline_forward_24);
+        }
       }
     }
 
@@ -800,47 +808,57 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
             unpinRes = R.string.MessageUnpin;
             break;
         }
-        if (pinnedCount > 0) {
-          ids.append(R.id.btn_messageUnpin);
-          strings.append(unpinRes);
-          icons.append(R.drawable.deproko_baseline_pin_undo_24);
-        } else {
-          ids.append(R.id.btn_messagePin);
-          strings.append(pinRes);
-          icons.append(R.drawable.deproko_baseline_pin_24);
+        if (EvaSettings.instance().isMsgPin()) {
+          if (pinnedCount > 0) {
+            ids.append(R.id.btn_messageUnpin);
+            strings.append(unpinRes);
+            icons.append(R.drawable.deproko_baseline_pin_undo_24);
+          } else {
+            ids.append(R.id.btn_messagePin);
+            strings.append(pinRes);
+            icons.append(R.drawable.deproko_baseline_pin_24);
+          }
         }
       }
     }
 
     // Stats
 
-    if (!isMore && msg.canViewStatistics()) {
-      ids.append(R.id.btn_viewStatistics);
-      strings.append(R.string.ViewStats);
-      icons.append(R.drawable.baseline_bar_chart_24);
+    if (EvaSettings.instance().isMsgStats()) {
+      if (!isMore && msg.canViewStatistics()) {
+        ids.append(R.id.btn_viewStatistics);
+        strings.append(R.string.ViewStats);
+        icons.append(R.drawable.baseline_bar_chart_24);
+      }
     }
 
     // Edit
 
-    if (!isMore && msg.canEditText() && isSent) {
-      ids.append(R.id.btn_messageEdit);
-      strings.append(R.string.edit);
-      icons.append(R.drawable.baseline_edit_24);
+    if (EvaSettings.instance().isMsgEdit()) {
+      if (!isMore && msg.canEditText() && isSent) {
+        ids.append(R.id.btn_messageEdit);
+        strings.append(R.string.edit);
+        icons.append(R.drawable.baseline_edit_24);
+      }
     }
 
     // Copy, select
 
     TdApi.Chat chat = m.tdlib().chat(msg.getChatId());
-    if (!isMore && m.tdlib().canCopyPostLink(msg.getMessage())) {
-      ids.append(R.id.btn_messageCopyLink);
-      strings.append(R.string.CopyLink);
-      icons.append(R.drawable.baseline_link_24);
+    if (EvaSettings.instance().isMsgLink()) {
+      if (!isMore && m.tdlib().canCopyPostLink(msg.getMessage())) {
+        ids.append(R.id.btn_messageCopyLink);
+        strings.append(R.string.CopyLink);
+        icons.append(R.drawable.baseline_link_24);
+      }
     }
 
-    if (!isMore && msg.canBeSaved() && TD.canCopyText(newestMessage)) {
-      ids.append(R.id.btn_messageCopy);
-      strings.append(R.string.Copy);
-      icons.append(R.drawable.baseline_content_copy_24);
+    if (EvaSettings.instance().isMsgCopy()) {
+      if (!isMore && msg.canBeSaved() && TD.canCopyText(newestMessage)) {
+        ids.append(R.id.btn_messageCopy);
+        strings.append(R.string.Copy);
+        icons.append(R.drawable.baseline_content_copy_24);
+      }
     }
 
     if (messageCount == 1) {
@@ -880,13 +898,15 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
 
         TD.DownloadedFile baseDownloadedFile = downloadedFiles.get(0);
         if (msg.canBeSaved() && baseDownloadedFile.getFileType().getConstructor() == TdApi.FileTypeAnimation.CONSTRUCTOR) {
-          ids.append(R.id.btn_saveGif);
-          if (allMessages.length == 1) {
-            strings.append(R.string.SaveGif);
-          } else {
-            strings.append(Lang.plural(R.string.SaveXGifs, downloadedFiles.size()));
+          if (EvaSettings.instance().isMsgSave()) {
+            ids.append(R.id.btn_saveGif);
+            if (allMessages.length == 1) {
+              strings.append(R.string.SaveGif);
+            } else {
+              strings.append(Lang.plural(R.string.SaveXGifs, downloadedFiles.size()));
+            }
+            icons.append(R.drawable.deproko_baseline_gif_24);
           }
-          icons.append(R.drawable.deproko_baseline_gif_24);
         }
         switch (baseDownloadedFile.getFileType().getConstructor()) {
           case TdApi.FileTypeVoiceNote.CONSTRUCTOR:
@@ -896,26 +916,30 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
           case TdApi.FileTypeAnimation.CONSTRUCTOR:
           case TdApi.FileTypeVideo.CONSTRUCTOR:
           case TdApi.FileTypePhoto.CONSTRUCTOR: {
-            if (msg.canBeSaved()) {
-              ids.append(R.id.btn_saveFile);
-              if (allMessages.length == 1) {
-                strings.append(R.string.SaveToGallery);
-              } else {
-                strings.append(Lang.plural(R.string.SaveXToGallery, downloadedFiles.size()));
+            if (EvaSettings.instance().isMsgSave()) {
+              if (msg.canBeSaved()) {
+                ids.append(R.id.btn_saveFile);
+                if (allMessages.length == 1) {
+                  strings.append(R.string.SaveToGallery);
+                } else {
+                  strings.append(Lang.plural(R.string.SaveXToGallery, downloadedFiles.size()));
+                }
+                icons.append(R.drawable.baseline_image_24);
               }
-              icons.append(R.drawable.baseline_image_24);
             }
             break;
           }
           case TdApi.FileTypeAudio.CONSTRUCTOR: {
-            if (msg.canBeSaved()) {
-              ids.append(R.id.btn_saveFile);
-              if (allMessages.length == 1) {
-                strings.append(R.string.SaveToMusic);
-              } else {
-                strings.append(Lang.plural(R.string.SaveXToMusic, downloadedFiles.size()));
+            if (EvaSettings.instance().isMsgSave()) {
+              if (msg.canBeSaved()) {
+                ids.append(R.id.btn_saveFile);
+                if (allMessages.length == 1) {
+                  strings.append(R.string.SaveToMusic);
+                } else {
+                  strings.append(Lang.plural(R.string.SaveXToMusic, downloadedFiles.size()));
+                }
+                icons.append(R.drawable.baseline_music_note_24);
               }
-              icons.append(R.drawable.baseline_music_note_24);
             }
             break;
           }
@@ -934,14 +958,16 @@ public class MessageView extends SparseDrawableView implements Destroyable, Draw
               }
             }
 
-            if (msg.canBeSaved()) {
-              ids.append(R.id.btn_saveFile);
-              if (allMessages.length == 1) {
-                strings.append(R.string.SaveToDownloads);
-              } else {
-                strings.append(Lang.plural(R.string.SaveXToDownloads, downloadedFiles.size()));
+            if (EvaSettings.instance().isMsgSave()) {
+              if (msg.canBeSaved()) {
+                ids.append(R.id.btn_saveFile);
+                if (allMessages.length == 1) {
+                  strings.append(R.string.SaveToDownloads);
+                } else {
+                  strings.append(Lang.plural(R.string.SaveXToDownloads, downloadedFiles.size()));
+                }
+                icons.append(R.drawable.baseline_file_download_24);
               }
-              icons.append(R.drawable.baseline_file_download_24);
             }
             break;
           }

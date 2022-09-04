@@ -32,4 +32,7 @@
     <string name="DisableRecordButton">Disable record button</string>
     <string name="RememberSendOptions">Remember send options</string>
     <string name="RememberSendOptionsDesc">Saves the state of the send options, such as send without sound, send without author, send without label</string>
+    <string name="DisableReactions">Disable reactions</string>
+    <string name="MsgMenuSettings">Message menu manager</string>
+    <string name="MsgMenuSettingsDesc">In this section you can choose which items will be displayed in the message menu</string>
 </resources>

@@ -28,15 +28,13 @@ public class EvaSettings {
 
   private static final String KEY_VERSION = "version";
 
-  // eva features
-  //
   // General
-  public static final String KEY_SHOW_CHATID = "show_chatid"; // chat id
-  //
+  public static final String KEY_SHOW_CHATID = "show_chatid";
+
   // Appearance
   public static final String KEY_HIDE_NUMBER = "hide_number";
   public static final String KEY_ENABLE_COMMENTS = "enable_comments";
-  //
+
   // Chats
   public static final String KEY_DISABLE_CAMERA_BUTTON = "disable_camera_button";
   public static final String KEY_DISABLE_RECORD_BUTTON = "disable_record_button";
@@ -44,7 +42,21 @@ public class EvaSettings {
   public static final String KEY_SEND_AS_COPY = "send_as_copy";
   public static final String KEY_SEND_REMOVE_CAPTIONS = "send_remove_captions";
   public static final String KEY_SEND_WITHOUT_SOUND = "send_without_sound";
-  //
+
+  public static final String KEY_MSG_REPLY = "msg_reply";
+  public static final String KEY_MSG_REPOST = "msg_repost";
+  public static final String KEY_MSG_REPEAT = "msg_repeat";
+  public static final String KEY_MSG_PIN = "msg_pin";
+  public static final String KEY_MSG_EDIT = "msg_edit";
+  public static final String KEY_MSG_LINK = "msg_link";
+  public static final String KEY_MSG_COPY = "msg_copy";
+  public static final String KEY_MSG_DEL = "msg_del";
+  public static final String KEY_MSG_SAVE = "msg_save";
+  public static final String KEY_MSG_STATS = "msg_stats";
+  public static final String KEY_MSG_OTHER = "msg_other";
+
+  public static final String KEY_DISABLE_REACTIONS = "disable_reactions";
+
   // Drawer
   public static final String KEY_DRAWER_CONTACTS = "drawer_contacts";
   public static final String KEY_DRAWER_CALLS = "drawer_calls";
@@ -282,6 +294,102 @@ public class EvaSettings {
 
   public void putSendWithoutSound (boolean enable) {
     putBoolean(KEY_SEND_WITHOUT_SOUND, enable);
+  }
+
+  public boolean isMsgReply () {
+    return getBoolean(KEY_MSG_REPLY, true);
+  }
+
+  public void toggleMsgReply () {
+    putBoolean(KEY_MSG_REPLY, !isMsgReply());
+  }
+
+  public boolean isMsgRepost () {
+    return getBoolean(KEY_MSG_REPOST, true);
+  }
+
+  public void toggleMsgRepost () {
+    putBoolean(KEY_MSG_REPOST, !isMsgRepost());
+  }
+
+  public boolean isMsgRepeat () {
+    return getBoolean(KEY_MSG_REPEAT, false);
+  }
+
+  public void toggleMsgRepeat () {
+    putBoolean(KEY_MSG_REPEAT, !isMsgRepeat());
+  }
+
+  public boolean isMsgPin () {
+    return getBoolean(KEY_MSG_PIN, true);
+  }
+
+  public void toggleMsgPin () {
+    putBoolean(KEY_MSG_PIN, !isMsgPin());
+  }
+
+  public boolean isMsgEdit () {
+    return getBoolean(KEY_MSG_EDIT, true);
+  }
+
+  public void toggleMsgEdit () {
+    putBoolean(KEY_MSG_EDIT, !isMsgEdit());
+  }
+
+  public boolean isMsgLink () {
+    return getBoolean(KEY_MSG_LINK, true);
+  }
+
+  public void toggleMsgLink () {
+    putBoolean(KEY_MSG_LINK, !isMsgLink());
+  }
+
+  public boolean isMsgCopy () {
+    return getBoolean(KEY_MSG_COPY, true);
+  }
+
+  public void toggleMsgCopy () {
+    putBoolean(KEY_MSG_COPY, !isMsgCopy());
+  }
+
+  public boolean isMsgDel () {
+    return getBoolean(KEY_MSG_DEL, true);
+  }
+
+  public void toggleMsgDel () {
+    putBoolean(KEY_MSG_DEL, !isMsgDel());
+  }
+
+  public boolean isMsgSave () {
+    return getBoolean(KEY_MSG_SAVE, true);
+  }
+
+  public void toggleMsgSave () {
+    putBoolean(KEY_MSG_SAVE, !isMsgSave());
+  }
+
+  public boolean isMsgStats () {
+    return getBoolean(KEY_MSG_STATS, false);
+  }
+
+  public void toggleMsgStats () {
+    putBoolean(KEY_MSG_STATS, !isMsgStats());
+  }
+
+  public boolean isMsgOther () {
+    return getBoolean(KEY_MSG_OTHER, true);
+  }
+
+  public void toggleMsgOther () {
+    putBoolean(KEY_MSG_OTHER, !isMsgOther());
+  }
+
+  public boolean isReactionsDisabled () {
+    return getBoolean(KEY_DISABLE_REACTIONS, false);
+  }
+
+  public void toggleDisableReactions () {
+    putBoolean(KEY_DISABLE_REACTIONS, !isReactionsDisabled());
   }
 
   // Drawer
