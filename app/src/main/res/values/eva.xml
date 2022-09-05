@@ -18,11 +18,11 @@
 
     <!-- Appearance settings -->
     <string name="HideNumber">Hide phone number</string>
-    <string name="HideNumberDesc">Hiding a phone number in the drawer and settings</string>
+    <string name="HideNumberDesc">Hiding a phone number in the drawer and settings. Restart needed</string>
     <string name="EnableComments">Enable comments</string>
     <string name="EnableCommentsDesc">Works only when block-messages are enabled</string>
     <string name="DrawerSettings">Drawer manager</string>
-    <string name="DrawerSettingsDesc">In this section you can choose which items will be displayed in the drawer</string>
+    <string name="DrawerSettingsDesc">In this section you can choose which items will be displayed in the drawer. Restart needed</string>
 
     <!-- General settings -->
     <string name="ShowChatId">Show chat ID</string>
