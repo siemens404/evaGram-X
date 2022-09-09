@@ -673,7 +673,7 @@ public class SettingsController extends ViewController<Void> implements
     items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_copyDebug, R.drawable.baseline_bug_report_24, R.string.CopyReportData));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
-    items.add(new ListItem(ListItem.TYPE_BUILD_NO, R.id.btn_build, 0, Lang.getAppBuildAndVersion(tdlib), false));
+    items.add(new ListItem(ListItem.TYPE_BUILD_NO, R.id.btn_build, 0, R.string.eva_build, false));
 
     processUserFull(tdlib.myUserFull());
 

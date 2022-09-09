@@ -2,6 +2,7 @@
 <resources>
     <!-- evaGram main strings -->
     <string name="evaAppName" translatable="false">evaGram</string>
+    <string name="eva_build" translatable="false">evaGram 1.0.0, based on Telegram-X</string>
     <string name="ChatId" translatable="false">ID</string>
     <string name="HiddenNumber">Hidden number</string>
     <string name="MessageRepeat">Repeat</string>
