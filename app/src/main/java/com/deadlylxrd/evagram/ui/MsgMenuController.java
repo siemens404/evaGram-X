@@ -133,8 +133,8 @@ public class MsgMenuController extends RecyclerViewController<Void> implements V
 
     items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.MsgMenuSettingsDesc));
-    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
 
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_messageReply, 0, R.string.Reply));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_messageRepeat, 0, R.string.MessageRepeat));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_messageShare, 0, R.string.Share));
@@ -146,7 +146,6 @@ public class MsgMenuController extends RecyclerViewController<Void> implements V
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_saveFile, 0, R.string.Save));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_viewStatistics, 0, R.string.ViewStats));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_messageMore, 0, R.string.MoreMessageOptions));
-
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     adapter.setItems(items, true);

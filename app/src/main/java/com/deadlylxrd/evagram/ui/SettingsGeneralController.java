@@ -62,6 +62,9 @@ public class SettingsGeneralController extends RecyclerViewController<Void> impl
 
     ArrayList<ListItem> items = new ArrayList<>();
 
+    items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_showChatId, 0, R.string.ShowChatId));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 

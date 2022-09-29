@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.SparseIntArray;
 import android.view.View;
 
+import com.deadlylxrd.evagram.EvaConfig;
 import com.deadlylxrd.evagram.EvaSettings;
 import com.deadlylxrd.evagram.ui.SettingsGeneralController;
 import com.deadlylxrd.evagram.ui.SettingsAppearanceController;
@@ -57,6 +58,9 @@ public class SettingsEvaController extends RecyclerViewController<Void> implemen
         tdlib.ui().openUrl(this, "https://github.com/evaGram/evaGram", new TdlibUi.UrlOpenParameters().forceInstantView());
         break;
       }
+      case R.id.btn_evaDev: {
+        tdlib.ui().openUrl(this, "https://t.me/deadlylxrd", new TdlibUi.UrlOpenParameters().forceInstantView());
+        break;
       case R.id.btn_supportProject: {
         tdlib.ui().openUrl(this, "https://deadlylxrd.me/donate", new TdlibUi.UrlOpenParameters().forceInstantView());
         break;
@@ -76,11 +80,28 @@ public class SettingsEvaController extends RecyclerViewController<Void> implemen
     adapter = new SettingsAdapter(this) {
       @Override protected void setValuedSetting (ListItem item, SettingView view, boolean isUpdate) {
         view.setDrawModifier(item.getDrawModifier());
+        switch (item.getId()) {
+          case R.id.btn_tgChannel:
+            view.setData(EvaConfig.CHANNEL_USERNAME);
+            break;
+          case R.id.btn_sourceCode:
+            view.setData(EvaConfig.SOURCE_CODE_LINK);
+            break;
+          case R.id.btn_evaDev:
+            view.setData(EvaConfig.EVA_DEV);
+            break;
+          case R.id.btn_supportProject:
+            view.setData(R.string.SupportProjectDesc);
+            break;
+        }
       }
     };
 
     ArrayList<ListItem> items = new ArrayList<>();
 
+    items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_generalSettings, R.drawable.baseline_widgets_24, R.string.GeneralSettings));
     items.add(new ListItem(ListItem.TYPE_SEPARATOR));
     items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_appearanceSettings, R.drawable.baseline_palette_24, R.string.AppearanceSettings));
@@ -91,13 +112,15 @@ public class SettingsEvaController extends RecyclerViewController<Void> implemen
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
-    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_tgChannel, R.drawable.baseline_help_24, R.string.TgChannel));
+    items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_tgChannel, R.drawable.baseline_help_24, R.string.TgChannel));
     items.add(new ListItem(ListItem.TYPE_SEPARATOR));
-    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_sourceCode, R.drawable.baseline_github_24, R.string.EvaSourceCode));
+    items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_sourceCode, R.drawable.baseline_github_24, R.string.EvaSourceCode));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
-    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_supportProject, R.drawable.baseline_paid_24, R.string.SupportProject));
+    items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_evaDev, R.drawable.baseline_code_24, R.string.EvaDev));
+    items.add(new ListItem(ListItem.TYPE_SEPARATOR));
+    items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_supportProject, R.drawable.baseline_paid_24, R.string.SupportProject));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     adapter.setItems(items, true);

@@ -30,6 +30,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.deadlylxrd.evagram.EvaSettings;
 import com.deadlylxrd.evagram.ui.SettingsEvaController;
+import com.deadlylxrd.evagram.utils.Utils;
 
 import org.drinkless.td.libcore.telegram.Client;
 import org.drinkless.td.libcore.telegram.TdApi;
@@ -462,6 +463,9 @@ public class SettingsController extends ViewController<Void> implements
       public void setValuedSetting (ListItem item, SettingView view, boolean isUpdate) {
         boolean hasError = false;
         switch (item.getId()) {
+          case R.id.btn_evaSettings:
+            view.setData(R.string.evaSettingsDesc);
+            break;
           case R.id.btn_notificationSettings:
             checkErrors(false);
             hasError = hasNotificationError;
@@ -614,7 +618,7 @@ public class SettingsController extends ViewController<Void> implements
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
-    items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_evaSettings, R.drawable.baseline_settings_24, R.string.EvaSettings));
+    items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_evaSettings, R.drawable.baseline_settings_24, R.string.EvaSettings));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
     TdApi.SuggestedAction[] actions = tdlib.getSuggestedActions();
@@ -673,7 +677,7 @@ public class SettingsController extends ViewController<Void> implements
     items.add(new ListItem(ListItem.TYPE_VALUED_SETTING_COMPACT, R.id.btn_copyDebug, R.drawable.baseline_bug_report_24, R.string.CopyReportData));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
-    items.add(new ListItem(ListItem.TYPE_BUILD_NO, R.id.btn_build, 0, R.string.eva_build, false));
+    items.add(new ListItem(ListItem.TYPE_BUILD_NO, R.id.btn_build, 0, Utils.getEvaVersion(), false));
 
     processUserFull(tdlib.myUserFull());
 

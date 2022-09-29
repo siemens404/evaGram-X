@@ -2,13 +2,14 @@
 <resources>
     <!-- evaGram main strings -->
     <string name="evaAppName" translatable="false">evaGram</string>
-    <string name="eva_build" translatable="false">evaGram 1.0.0, based on Telegram-X</string>
+    <string name="evaVersionName" translatable="false">evaGram — custom Telegram client, based on TGX sources. Version %1$s</string>
     <string name="ChatId" translatable="false">ID</string>
     <string name="HiddenNumber">Hidden number</string>
     <string name="MessageRepeat">Repeat</string>
 
     <!-- evaGram settings (main) -->
     <string name="EvaSettings">evaGram Settings</string>
+    <string name="evaSettingsDesc">Advanced modification settings</string>
     <string name="GeneralSettings">General</string>
     <string name="AppearanceSettings">Appearance</string>
     <string name="ChatsSettings">Chats</string>
@@ -16,6 +17,7 @@
     <string name="TgChannel">Telegram channel</string>
     <string name="EvaSourceCode">evaGram Source Code</string>
     <string name="SupportProject">Donate</string>
+    <string name="SupportProjectDesc">Help further development of the evaGram</string>
 
     <!-- Appearance settings -->
     <string name="HideNumber">Hide phone number</string>

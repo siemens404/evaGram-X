@@ -86,12 +86,16 @@ public class SettingsChatsController extends RecyclerViewController<Void> implem
 
     ArrayList<ListItem> items = new ArrayList<>();
 
+    items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableCameraButton, 0, R.string.DisableCameraButton));
     items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableRecordButton, 0, R.string.DisableRecordButton));
     items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_rememberSendOptions, 0, R.string.RememberSendOptions));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
+
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.RememberSendOptionsDesc));
     items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableReactions, 0, R.string.DisableReactions));

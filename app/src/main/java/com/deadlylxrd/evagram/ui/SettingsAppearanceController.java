@@ -73,12 +73,19 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
 
     ArrayList<ListItem> items = new ArrayList<>();
 
+    items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_hideNumber, 0, R.string.HideNumber));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.HideNumberDesc));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_enableComments, 0, R.string.EnableComments));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
     items.add(new ListItem(ListItem.TYPE_DESCRIPTION, 0, 0, R.string.EnableCommentsDesc));
+
+    items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
     items.add(new ListItem(ListItem.TYPE_SETTING, R.id.btn_drawerSettings, 0, R.string.DrawerSettings));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 

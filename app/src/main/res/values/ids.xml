@@ -1239,6 +1239,7 @@
   <item type="id" name="btn_tgChannel" />
   <item type="id" name="btn_sourceCode" />
   <item type="id" name="btn_sourceCodeChanges" />
+  <item type="id" name="btn_evaDev" />
   <item type="id" name="btn_supportProject" />
 
   <!-- General settings buttons -->
