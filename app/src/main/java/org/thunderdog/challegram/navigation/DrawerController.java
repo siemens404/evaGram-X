@@ -259,6 +259,7 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       headerView.getExpanderView().setExpanded(true, false);
     }
 
+    items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_settings, R.drawable.baseline_settings_24, R.string.Settings));
     if (EvaSettings.instance().isDrawerContactsShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_contacts, R.drawable.baseline_perm_contact_calendar_24, R.string.Contacts));
     }
@@ -269,7 +270,6 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_savedMessages, R.drawable.baseline_bookmark_24, R.string.SavedMessages));
     }
     this.settingsErrorIcon = getSettingsErrorIcon();
-    items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_settings, R.drawable.baseline_settings_24, R.string.Settings));
     if (EvaSettings.instance().isDrawerFriendsShow()) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_invite, R.drawable.baseline_person_add_24, R.string.InviteFriends));
     }
@@ -777,16 +777,8 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       adapter.getItems().addAll(1, items);
       adapter.notifyItemRangeInserted(1, items.size());
     } else {
-      if (!EvaSettings.instance().isDrawerContactsShow()) {
-        int count = adapter.indexOfViewById(R.id.btn_calls) - 1;
-        adapter.removeRange(1, count);
-      } else if (!EvaSettings.instance().isDrawerCallsShow()) {
-        int count = adapter.indexOfViewById(R.id.btn_savedMessages) - 1;
-        adapter.removeRange(1, count);
-      } else if (!EvaSettings.instance().isDrawerFavouriteShow()) {
-        int count = adapter.indexOfViewById(R.id.btn_settings) - 1;
-        adapter.removeRange(1, count);
-      }
+      int count = adapter.indexOfViewById(R.id.btn_settings) - 1;
+      adapter.removeRange(1, count);
     }
   }
 
