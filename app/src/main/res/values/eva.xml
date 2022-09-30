@@ -10,12 +10,16 @@
     <!-- evaGram settings (main) -->
     <string name="EvaSettings">evaGram Settings</string>
     <string name="evaSettingsDesc">Advanced modification settings</string>
+    <string name="EvaSettingsDesc">Extended settings</string>
+    <string name="EvaInfo">Info</string>
+    <string name="EvaLinks">Links</string>
     <string name="GeneralSettings">General</string>
     <string name="AppearanceSettings">Appearance</string>
     <string name="ChatsSettings">Chats</string>
     <string name="ExperimentalSettings">Experimental</string>
     <string name="TgChannel">Telegram channel</string>
     <string name="EvaSourceCode">evaGram Source Code</string>
+    <string name="EvaDev">Developer</string>
     <string name="SupportProject">Donate</string>
     <string name="SupportProjectDesc">Help further development of the evaGram</string>
 
