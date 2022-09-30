@@ -1,10 +1,12 @@
 package com.deadlylxrd.evagram.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.SparseIntArray;
 import android.view.View;
 
 import com.deadlylxrd.evagram.EvaSettings;
+import com.deadlylxrd.evagram.utils.LifecycleUtils;
 
 import org.thunderdog.challegram.R;
 import org.thunderdog.challegram.component.base.SettingView;
@@ -28,6 +30,10 @@ public class CustomDrawerController extends RecyclerViewController<Void> impleme
 
   @Override public CharSequence getName () {
     return Lang.getString(R.string.DrawerSettings);
+  }
+
+  @Override public void onBackPressed() {
+    LifecycleUtils.restartApp();
   }
 
   @Override public void onClick (View v) {

@@ -6,6 +6,7 @@
     <string name="ChatId" translatable="false">ID</string>
     <string name="HiddenNumber">Hidden number</string>
     <string name="MessageRepeat">Repeat</string>
+    <string name="AppRestarted">App restarted!</string>
 
     <!-- evaGram settings (main) -->
     <string name="EvaSettings">evaGram Settings</string>

@@ -3,6 +3,7 @@
     <!-- evaGram main strings -->
     <string name="HiddenNumber">Номер скрыт</string>
     <string name="MessageRepeat">Повтор</string>
+    <string name="AppRestarted">Приложение перезапущено!</string>
 
     <!-- evaGram settings (main) -->
     <string name="EvaSettings">Настройки evaGram</string>

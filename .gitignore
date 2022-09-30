@@ -22,3 +22,4 @@ output-metadata.json
 libc++_shared.so
 
 app/google-services.json
+app/jni/thirdparty/exoplayer/opus_jni.cc

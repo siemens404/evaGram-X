@@ -1,11 +1,13 @@
 package com.deadlylxrd.evagram.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.SparseIntArray;
 import android.view.View;
 
 import com.deadlylxrd.evagram.EvaSettings;
 import com.deadlylxrd.evagram.ui.CustomDrawerController;
+import com.deadlylxrd.evagram.utils.LifecycleUtils;
 
 import org.thunderdog.challegram.R;
 import org.thunderdog.challegram.component.base.SettingView;
@@ -37,6 +39,7 @@ public class SettingsAppearanceController extends RecyclerViewController<Void> i
       case R.id.btn_hideNumber:
         EvaSettings.instance().toggleHideNumber();
         adapter.updateValuedSettingById(R.id.btn_hideNumber);
+        LifecycleUtils.restartApp();
         break;
       case R.id.btn_enableComments:
         EvaSettings.instance().toggleEnableComments();
